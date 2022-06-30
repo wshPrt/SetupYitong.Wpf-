@@ -1,0 +1,136 @@
+日志时间：2022-02-15 10:40:49,114 
+日志级别：INFO   
+日志内容：程序初始....
+
+日志时间：2022-02-15 10:41:00,921 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 10:41:00,922 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 10:41:04,694 
+日志级别：INFO   
+日志内容：Connect :999999E:\SYT\WpfAppP2P\WpfAppP2P\bin\Debug\flieWpfAppP2P.MainWindow+OnP2pTsFaild
+
+日志时间：2022-02-15 10:41:16,925 
+日志级别：INFO   
+日志内容：openFileDialog :Microsoft.Win32.OpenFileDialog: Title: , FileName: 
+
+日志时间：2022-02-15 10:41:20,251 
+日志级别：INFO   
+日志内容：传输文件 :E:\迅雷下载\20210830_150254.mp4WpfAppP2P.MainWindow+FileTransmitDone
+
+日志时间：2022-02-15 10:41:21,261 
+日志级别：INFO   
+日志内容：Stop
+
+日志时间：2022-02-15 10:41:27,956 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 10:41:27,957 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 11:35:55,478 
+日志级别：INFO   
+日志内容：程序初始....
+
+日志时间：2022-02-15 12:35:51,650 
+日志级别：INFO   
+日志内容：程序初始....
+
+日志时间：2022-02-15 12:36:14,074 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 12:36:14,074 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 12:37:16,681 
+日志级别：INFO   
+日志内容：openFileDialog :Microsoft.Win32.OpenFileDialog: Title: , FileName: 
+
+日志时间：2022-02-15 12:37:20,307 
+日志级别：INFO   
+日志内容：传输文件 :E:\迅雷下载\WPF专题之资源样式01.mp4WpfAppP2P.MainWindow+FileTransmitDone
+
+日志时间：2022-02-15 12:37:38,255 
+日志级别：INFO   
+日志内容：Stop
+
+日志时间：2022-02-15 12:37:54,799 
+日志级别：INFO   
+日志内容：openFileDialog :Microsoft.Win32.OpenFileDialog: Title: , FileName: 
+
+日志时间：2022-02-15 12:37:58,836 
+日志级别：INFO   
+日志内容：传输文件 :E:\迅雷下载\treeView-main.zipWpfAppP2P.MainWindow+FileTransmitDone
+
+日志时间：2022-02-15 12:37:59,806 
+日志级别：INFO   
+日志内容：Stop
+
+日志时间：2022-02-15 12:38:44,962 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 12:38:44,962 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 12:38:48,856 
+日志级别：INFO   
+日志内容：Connect :999999E:\SYT\WpfAppP2P\WpfAppP2P\bin\Debug\flieWpfAppP2P.MainWindow+OnP2pTsFaild
+
+日志时间：2022-02-15 12:38:50,742 
+日志级别：INFO   
+日志内容：openFileDialog :Microsoft.Win32.OpenFileDialog: Title: , FileName: 
+
+日志时间：2022-02-15 12:38:53,344 
+日志级别：INFO   
+日志内容：传输文件 :E:\迅雷下载\JetBrains.dotPeek.2021.3.2.web.exeWpfAppP2P.MainWindow+FileTransmitDone
+
+日志时间：2022-02-15 12:38:54,434 
+日志级别：INFO   
+日志内容：Stop
+
+日志时间：2022-02-15 12:55:25,102 
+日志级别：INFO   
+日志内容：程序初始....
+
+日志时间：2022-02-15 12:55:53,488 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 12:55:53,488 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 12:57:52,765 
+日志级别：INFO   
+日志内容：openFileDialog :Microsoft.Win32.OpenFileDialog: Title: , FileName: 
+
+日志时间：2022-02-15 12:57:55,030 
+日志级别：INFO   
+日志内容：传输文件 :E:\迅雷下载\WPF专题之资源样式01.mp4WpfAppP2P.MainWindow+FileTransmitDone
+
+日志时间：2022-02-15 12:57:56,616 
+日志级别：INFO   
+日志内容：Stop
+
+日志时间：2022-02-15 12:58:05,303 
+日志级别：INFO   
+日志内容：Init ====>114.55.233.1606001
+
+日志时间：2022-02-15 12:58:05,303 
+日志级别：INFO   
+日志内容：Register ====>111111WpfAppP2P.MainWindow+OnStreamConnectWpfAppP2P.MainWindow+OnStreamBroken
+
+日志时间：2022-02-15 12:58:08,780 
+日志级别：INFO   
+日志内容：Connect :999999E:\SYT\WpfAppP2P\WpfAppP2P\bin\Debug\flieWpfAppP2P.MainWindow+OnP2pTsFaild
+

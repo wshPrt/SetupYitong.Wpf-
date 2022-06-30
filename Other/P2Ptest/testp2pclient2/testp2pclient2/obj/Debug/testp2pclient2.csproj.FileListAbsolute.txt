@@ -1,0 +1,20 @@
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe.config
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.pdb
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.exe
+C:\Users\ASUS\source\repos\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.pdb
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.pdb
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.csproj.AssemblyReference.cache
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.csproj.CoreCompileInputs.cache
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.pdb
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe.config
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\62875e092fade05f02fec87249e870c6_52504c52de92ec3914c7a50132999d10_8\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.exe
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe.config
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.exe
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\bin\Debug\testp2pclient2.pdb
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.csproj.AssemblyReference.cache
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.csproj.CoreCompileInputs.cache
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.exe
+D:\Software\WeChat\Documents\WeChat Files\WeChat Files\wxid_w2ryh4hrxmjk22\FileStorage\File\2022-01\test\testp2pclient2\testp2pclient2\obj\Debug\testp2pclient2.pdb

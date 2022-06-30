@@ -1,0 +1,32 @@
+  try
+    try
+      SqliteDB := TSQLiteDatabase.Create(utf8encode(AppPath) + 'tran.db');
+      if pm.PayType in[3,9,10] then   //银行卡 扫码付支付 更新交易  //这边需要控制只更新一条  
+      begin
+        SqliteDB.ExecSQL('update POSSRLPM set PAYCODE='''+pm.sPayCode+''',SNO='+IntToStr(pm.SNO)+',SACC=''' + pm.sPayNo + ''','+
+        ' ACCID='+IntToStr(pm.iACCID)+',SPARE5='''+pm.sTranNO+''',STA=1 where uid='''+Trim(Frm.TranBF.SUID)+''' and PAYSNO=' +IntToStr(pm.PaySNO)+
+        ' AND STA=0 AND PAYTIME=(select max(paytime) from possrlpm where uid='''+Trim(Frm.TranBF.SUID)+''' and PAYSNO=' +IntToStr(pm.PaySNO)+' AND STA=0)');
+      end
+      else if ((pm.PayType in[4,5,11]) and (TSaleType(Frm.TranBF.Flag - 1) = stBack)) then   //储值卡 积分 优惠券  退货交易是保存之后 再下账的,此时状态为0
+      begin
+        SqliteDB.ExecSQL('insert into POSSRLPM(UID,PAYCODE,PMAMT,SNO,PAYSNO,SACC,ACCID,PAYTIME,SPARE1,RESAMT,SPARE5,STA) ' +
+        'values (''' + Trim(Frm.TranBF.SUID) + ''',' + pm.sPayCode + ',' + FloatToStr(pm.AMT) + ',' + IntToStr(pm.SNO) + ',' +
+        IntToStr(pm.PaySNO) + ',''' + pm.sPayNo + ''',' + IntToStr(pm.iACCID) + ',datetime(''' + FormatDateTime('yyyy-mm-dd HH:NN:SS', PM.payTime)+'''),' +
+        IntToStr(pm.iACCTYPE) + ','+FloatToStr(pm.Balance)+','''+pm.sTranNO+''',0)');
+      end
+      else
+      begin
+        SqliteDB.ExecSQL('insert into POSSRLPM(UID,PAYCODE,PMAMT,SNO,PAYSNO,SACC,ACCID,PAYTIME,SPARE1,RESAMT,SPARE5,STA) ' +
+        'values (''' + Trim(Frm.TranBF.SUID) + ''',' + pm.sPayCode + ',' + FloatToStr(pm.AMT) + ',' + IntToStr(pm.SNO) + ',' +
+        IntToStr(pm.PaySNO) + ',''' + pm.sPayNo + ''',' + IntToStr(pm.iACCID) + ',datetime(''' + FormatDateTime('yyyy-mm-dd HH:NN:SS', PM.payTime)+'''),' +
+        IntToStr(pm.iACCTYPE) + ','+FloatToStr(pm.Balance)+','''+pm.sTranNO+''',1)');
+      end;
+    except
+      on E: Exception do
+      begin
+        TLog.writeError(Self.Name,E.Message);
+      end;
+    end;
+  finally
+    SqliteDB.Free;
+  end;
