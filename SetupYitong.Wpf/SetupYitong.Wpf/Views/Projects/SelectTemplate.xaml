@@ -1,0 +1,221 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.SelectTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="clr-namespace:SetupYitong.Commons.WindowClose;assembly=SetupYitong.Commons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:event="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Border
+        Width="650"
+        Height="400"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Background="#FFFFFFFF"
+        BorderBrush="#FFF5F6F7"
+        BorderThickness="1"
+        CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="160" />
+            </Grid.ColumnDefinitions>
+            <!--  顶部  -->
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Background="#FFF5F6F7"
+                CornerRadius="15 10 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="12,0"
+                        VerticalAlignment="Center"
+                        FontSize="17"
+                        Foreground="#FF7B7B7B"
+                        Text="选择模版" />
+                    <Button
+                        Grid.Column="1"
+                        Height="50"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                        Foreground="#FF767777"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        ToolTip="关闭">
+                        <materialDesign:PackIcon
+                            Width="30"
+                            Height="30"
+                            Kind="Close" />
+                    </Button>
+                </Grid>
+            </Border>
+            <!--  第一行横线  -->
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                BorderBrush="#FFE1E1E1"
+                BorderThickness="1" />
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0"
+                Background="#FFFFFF">
+                <RadioButton
+                    x:Name="rbtnAnimation"
+                    Width="120"
+                    Height="35"
+                    Margin="0,10"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource RadioTemplateStyle}">
+                    <TextBlock Foreground="Black" Text="动画设计" />
+                </RadioButton>
+                <RadioButton
+                    x:Name="rbtnGame"
+                    Width="120"
+                    Height="35"
+                    Margin="0,50"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource RadioTemplateStyle}">
+                    <TextBlock Foreground="Black" Text="游戏设计" />
+                </RadioButton>
+                <Button
+                    x:Name="btnConfirm"
+                    Width="100"
+                    Height="32"
+                    Margin="0,10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="#FF0076F6"
+                    BorderBrush="Transparent"
+                    Command="{Binding ConfirmCommand}"
+                    Content="+设计模版"
+                    FontFamily="Arial"
+                    FontSize="14"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+            </Grid>
+            <!--  第一行垂直线  -->
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderBrush="#FFE1E1E1"
+                BorderThickness="1,0,0,0">
+                <WrapPanel Orientation="Horizontal">
+                    <ItemsControl
+                        x:Name="itemsControl"
+                        Margin="5"
+                        ItemsSource="{Binding CardList}"
+                        Style="{StaticResource SelectTemplateItems}" />
+                </WrapPanel>
+            </Border>
+
+            <!--  第二行垂直线  -->
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                BorderBrush="#FFE1E1E1"
+                BorderThickness="1,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="10,15,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="13"
+                        Foreground="Black"
+                        Text="模版类型" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10"
+                        VerticalAlignment="Center"
+                        FontSize="13"
+                        Foreground="#FF6E6E6E"
+                        Text="动画设计模版" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Margin="10,15"
+                        VerticalAlignment="Center"
+                        FontSize="13"
+                        Foreground="Black"
+                        Text="模版类型" />
+                    <TextBlock
+                        Grid.Row="3"
+                        Margin="10,0"
+                        VerticalAlignment="Top"
+                        FontSize="13"
+                        Foreground="#FF6E6E6E"
+                        Text="使用于三维动画制作包含故事脚本、建模、渲染、动画、特效等环节。" />
+                </Grid>
+            </Border>
+            <!--  底部横线  -->
+            <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                BorderBrush="#FFE1E1E1"
+                BorderThickness="1" />
+            <!--  底部  -->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                        Foreground="White"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        ToolTip="不使用模版">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FFB1B1B1"
+                            Text="不使用模版" />
+                    </Button>
+                    <Button
+                        x:Name="btnSelect"
+                        Width="100"
+                        Height="32"
+                        Margin="12"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Background="#FF0076F6"
+                        BorderBrush="Transparent"
+                        Command="{Binding ConfirmCommand}"
+                        Content="选择"
+                        FontFamily="Arial"
+                        FontSize="14"
+                        Foreground="White"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

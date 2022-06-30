@@ -1,0 +1,344 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.UserDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:localStatus="clr-namespace:SetupYitong.Commons.Converter;assembly=SetupYitong.Commons"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="376"
+    d:DesignWidth="516"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <localStatus:ForegroundConverter x:Key="ForegroundConverter" />
+    </UserControl.Resources>
+    <Border
+        Width="516"
+        Height="376"
+        Background="#FFFFFFFF"
+        BorderBrush="#FFF4F4F4"
+        BorderThickness="1"
+        CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
+                Background="#FFF5F6F7"
+                BorderBrush="#FFF5F6F7"
+                BorderThickness="1"
+                CornerRadius="10 10 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="20,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="Black"
+                        Text="用户详情" />
+                    <Button
+                        Grid.Column="1"
+                        Height="50"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                        Foreground="#FF4D4D4D"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        ToolTip="关闭">
+                        <materialDesign:PackIcon
+                            Width="30"
+                            Height="30"
+                            Kind="Close" />
+                    </Button>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="20,0"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="基本资料" />
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="60"
+                    Margin="20,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="#FFC6C6C6"
+                    BorderThickness="1" />
+                <!--  Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"  -->
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding DataModifyCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                    Foreground="#FF4D4D4D"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    ToolTip="修改">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="Black"
+                        Text="修改" />
+                </Button>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Margin="20,0"
+                    Orientation="Horizontal">
+                    <Border
+                        Grid.Row="1"
+                        Grid.RowSpan="3"
+                        Grid.Column="0"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        CornerRadius="30">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resource/Image/people.png" />
+                        </Border.Background>
+                    </Border>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <TextBlock
+                            Margin="5,2"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="#FF333333"
+                            Text="李明明" />
+                        <StackPanel Margin="5,2" Orientation="Horizontal">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="/Resource/Image/phone.png" />
+                            <TextBlock VerticalAlignment="Center" Text="13899991234" />
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="3"
+                    Margin="20,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="工号:" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="1234566" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="4"
+                    Margin="20,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="角色:" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="部门经理" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="5"
+                    Margin="20,0"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="职位:" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="高级原画设计师" />
+                </StackPanel>
+                <!--  右边  -->
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="项目统计" />
+                <Border
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    BorderBrush="#FFF5F6F7"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Foreground="#FF028AFF"
+                                Text="5" />
+                            <Border
+                                Width="30"
+                                BorderBrush="#FF028AFF"
+                                BorderThickness="1" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="11"
+                                Text="进行中" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Foreground="#FF27B9B6"
+                                Text="14" />
+                            <Border
+                                Width="30"
+                                BorderBrush="#FF27B9B6"
+                                BorderThickness="1" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="11"
+                                Text="已完成" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Foreground="#FFF88600"
+                                Text="0" />
+                            <Border
+                                Width="30"
+                                BorderBrush="#FFF88600"
+                                BorderThickness="1" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="11"
+                                Text="已逾期" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    FontSize="14"
+                    Foreground="Black"
+                    Text="任务列表" />
+
+                <DataGrid
+                    x:Name="dgTask"
+                    Grid.Row="3"
+                    Grid.RowSpan="7"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    materialDesign:DataGridAssist.CornerRadius="0"
+                    materialDesign:ScrollViewerAssist.CornerRectangleVisibility="Hidden"
+                    AutoGenerateColumns="False"
+                    Background="#FFFFFFFF"
+                    BorderBrush="#FFCDCDCD"
+                    CanUserSortColumns="True"
+                    Foreground="#FF383838"
+                    HeadersVisibility="None"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding TaskList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    SelectedItem="{Binding SelectedRow, Mode=TwoWay}"
+                    SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+                                            x:Name="btnDetails"
+                                            Width="Auto"
+                                            Height="Auto"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            materialDesign:ButtonAssist.CornerRadius="15"
+                                            Background="{Binding TaskState, Converter={StaticResource ForegroundConverter}, Mode=TwoWay}"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            FontSize="14"
+                                            Foreground="Black"
+                                            Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Text="{Binding StateTitle, Mode=TwoWay}" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <materialDesign:DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding TaskName, Mode=TwoWay}"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                            FontSize="14" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

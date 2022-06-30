@@ -1,0 +1,418 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.EnterpriseSetup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid>
+        <!--  注册信息  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="122" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF0089FF"
+                Text="注册信息" />
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="55"
+                Margin="0,35,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                BorderBrush="#FF028AFF"
+                BorderThickness="0,0,0,3" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="用户名:" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="3"
+                Width="220"
+                Height="30"
+                Padding="5,8,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                Foreground="#FF5E5E5E"
+                Text="WH_gmftec" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="手机号:" />
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="#FF5E5E5E"
+                    Text="13123048888" />
+                <Button
+                    Width="77"
+                    Height="28"
+                    Margin="5,0"
+                    Padding="-5,0"
+                    materialDesign:ButtonAssist.CornerRadius="13"
+                    Background="Transparent"
+                    BorderBrush="#FF5E5E5E"
+                    BorderThickness="0.3"
+                    Content="更改手机号"
+                    FontSize="12"
+                    Foreground="#FF5E5E5E" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="企业名称:" />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="武汉光魔方科技有限公司" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="注册时间:" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="2021.12.29 11:12:56" />
+        </Grid>
+        <Border
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Width="400"
+            Margin="30,39,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            BorderBrush="#FFC6C6C6"
+            BorderThickness="1" />
+        <!--  认证信息  -->
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="122" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF0089FF"
+                Text="认证信息" />
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="55"
+                Margin="0,35,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                BorderBrush="#FF028AFF"
+                BorderThickness="0,0,0,3" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="认证状态:" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF27B9B6"
+                Text="恭喜您,您的组织已认证成功。" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="组织邀请码:" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="14"
+                Foreground="#FF27B9B6"
+                Text="888000" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="3"
+                Width="170"
+                Height="30"
+                HorizontalAlignment="Left"
+                materialDesign:ButtonAssist.CornerRadius="0"
+                Background="#FF0089FF"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Content="联系客服"
+                FontSize="12"
+                Foreground="White" />
+        </Grid>
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="1"
+            Width="400"
+            Margin="30,39,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            BorderBrush="#FFC6C6C6"
+            BorderThickness="1" />
+        <!--  企业信息  -->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="122" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                FontSize="14"
+                Foreground="#FF0089FF"
+                Text="企业信息" />
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="55"
+                Margin="0,13,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                BorderBrush="#FF028AFF"
+                BorderThickness="0,0,0,3" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text=" 组织logo:" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="3"
+                Grid.Column="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Image
+                    Width="100"
+                    Height="70"
+                    Source="/Resource/Image/logo.png" />
+                <Button
+                    Width="77"
+                    Height="28"
+                    Margin="5,15,0,0"
+                    Padding="-5,0"
+                    VerticalAlignment="Top"
+                    materialDesign:ButtonAssist.CornerRadius="13"
+                    Background="Transparent"
+                    BorderBrush="#FF5E5E5E"
+                    BorderThickness="0.3"
+                    Content="重新上传"
+                    FontSize="12"
+                    Foreground="#FF5E5E5E" />
+            </StackPanel>
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="企业资质:" />
+            <StackPanel
+                Grid.Row="3"
+                Grid.RowSpan="4"
+                Grid.Column="3"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Vertical">
+                <Button
+                    Width="77"
+                    Height="28"
+                    Padding="-5,0"
+                    HorizontalAlignment="Left"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Background="Transparent"
+                    BorderBrush="#FF5E5E5E"
+                    BorderThickness="0.3"
+                    Content="+上传"
+                    FontSize="12"
+                    Foreground="#FF5E5E5E" />
+                <StackPanel Margin="0,5" Orientation="Horizontal">
+                    <Path
+                        Width="20"
+                        Height="20"
+                        Data="M512 14.208c274.56 0 497.792 223.168 497.792 497.792 0 274.56-223.168 497.792-497.792 497.792C237.44 1009.792 14.208 786.56 14.208 512 14.208 237.44 237.44 14.208 512 14.208z m0 71.104A427.072 427.072 0 0 0 85.312 512 427.072 427.072 0 0 0 512 938.688 427.072 427.072 0 0 0 938.688 512 427.072 427.072 0 0 0 512 85.312z m35.584 628.16v71.104H476.416v-71.04h71.168z m0-474.048v402.944H476.416V239.424h71.168z"
+                        Fill="#FF979797"
+                        Stretch="Uniform" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="#FFDDDDDD"
+                        Text="企业营业执照或个人工作证书" />
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="企业域名:" />
+            <TextBox
+                Grid.Row="5"
+                Grid.Column="3"
+                Width="220"
+                Height="30"
+                Padding="5,8,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                Foreground="#FF5E5E5E"
+                Text="www.whgmf.com" />
+
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="#FF5E5E5E"
+                Text="所属行业:" />
+            <TextBox
+                Grid.Row="6"
+                Grid.Column="3"
+                Width="220"
+                Height="30"
+                Padding="5,8,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                Foreground="#FF5E5E5E"
+                Text="软件开发/信息传输业" />
+            <Button
+                Grid.Row="7"
+                Grid.Column="3"
+                Width="100"
+                Height="28"
+                HorizontalAlignment="Left"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FF0089FF"
+                BorderBrush="#FF5E5E5E"
+                BorderThickness="0.3"
+                Content="确认"
+                FontSize="12"
+                Foreground="White" />
+        </Grid>
+        <Border
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Width="400"
+            Margin="30,28,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            BorderBrush="#FFC6C6C6"
+            BorderThickness="1" />
+
+    </Grid>
+</UserControl>
+

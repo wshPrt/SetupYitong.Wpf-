@@ -1,0 +1,872 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.FileHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:SetupYitong.Wpf.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <materialDesign:DrawerHost
+        x:Name="DrawerHost"
+        VerticalAlignment="Center"
+        BorderBrush="{DynamicResource MaterialDesignDivider}"
+        BorderThickness="0"
+        BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
+        <materialDesign:DrawerHost.Style>
+            <Style BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}" TargetType="materialDesign:DrawerHost">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="True">
+                        <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </materialDesign:DrawerHost.Style>
+        <!--  右边抽屉  -->
+        <materialDesign:DrawerHost.RightDrawerContent>
+            <StackPanel Width="Auto">
+                <ContentControl x:Name="ctlUploadFiles" prism:RegionManager.RegionName="UploadFilesRegion" />
+            </StackPanel>
+        </materialDesign:DrawerHost.RightDrawerContent>
+
+        <Grid Background="#FFFFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FFEEEEEE">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button
+                        x:Name="btnProject"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding GoBackProjectCommand}"
+                        Cursor="Hand"
+                        Foreground="Black"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#FF0E8FFF" CornerRadius="3">
+                                <Path
+                                    Width="17"
+                                    Height="10"
+                                    Data="M910.222222 540.444444v455.111112H597.333333v-199.111112h-170.666666v199.111112H113.777778V512H0L512 28.444444l512 512h-113.777778zM142.222222 455.111111h28.444445v483.555556h199.111111v-199.111111h284.444444v199.111111h199.111111V483.555556h28.444445L512 113.777778 142.222222 455.111111z"
+                                    Fill="White"
+                                    Stretch="Uniform" />
+                            </Border>
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Text="文件中心" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        x:Name="btnReturnTask"
+                        Width="90"
+                        Height="30"
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Background="#FF0076F6"
+                        BorderBrush="#FFEAEAEA"
+                        Command="{Binding ReturnTaskCommand}"
+                        FontFamily="Arial"
+                        FontSize="12"
+                        Foreground="#FFFFFFFF"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Margin="-32,0" Orientation="Horizontal">
+                            <Grid>
+                                <Path
+                                    Width="18"
+                                    Height="14"
+                                    Data="M512 960C264.96 960 64 759.04 64 512S264.96 64 512 64s448 200.96 448 448S759.04 960 512 960zM512 128C300.256 128 128 300.256 128 512c0 211.744 172.256 384 384 384 211.744 0 384-172.256 384-384C896 300.256 723.744 128 512 128z"
+                                    Fill="White"
+                                    Stretch="Uniform" />
+                                <Path
+                                    Width="8"
+                                    Height="14"
+                                    Data="M290.368 524.352c0.032 0.128 0.192 0.256 0.256 0.384 1.536 3.616 3.648 7.072 6.592 10.048 0.032 0.032 0.064 0.032 0.096 0.064s0.032 0.064 0.064 0.096l158.912 159.36c12.48 12.512 32.704 12.576 45.248 0.064 12.512-12.48 12.544-32.704 0.064-45.248l-103.328-103.616 305.056 0c17.664 0 32-14.336 32-32s-14.336-32-32-32l-306.752 0 106.112-104.96c12.576-12.448 12.672-32.672 0.256-45.248-6.24-6.336-14.496-9.504-22.752-9.504-8.128 0-16.256 3.104-22.496 9.248l-160.256 158.496C288 498.912 285.632 512.704 290.368 524.352z"
+                                    Fill="White"
+                                    Stretch="Uniform" />
+                            </Grid>
+
+                            <TextBlock
+                                x:Name="txtReturnTask"
+                                VerticalAlignment="Center"
+                                FontFamily="Arial"
+                                FontSize="11"
+                                Foreground="#FFFFFFFF"
+                                Text="返回任务" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        x:Name="btnTaskFeedback"
+                        Width="94"
+                        Height="30"
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Background="#FF27B9B6"
+                        BorderBrush="#FFEAEAEA"
+                        Command="{Binding TaskFeedbackCommand}"
+                        FontFamily="Arial"
+                        FontSize="13"
+                        Foreground="#FFFFFFFF"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Margin="-35,0" Orientation="Horizontal">
+                            <Grid>
+                                <Image
+                                    Width="50"
+                                    Height="20"
+                                    HorizontalAlignment="Left"
+                                    Source="/Resource/Image/Message.png" />
+                            </Grid>
+
+                            <TextBlock
+                                x:Name="txtTaskFeedback"
+                                Margin="-26,0"
+                                VerticalAlignment="Center"
+                                FontFamily="Arial"
+                                FontSize="11"
+                                Foreground="#FFFFFFFF"
+                                Text="任务反馈" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+
+                    <Button
+                        x:Name="btnUploadFile"
+                        Width="90"
+                        Height="30"
+                        Margin="5,0"
+                        VerticalAlignment="Top"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Background="#FF0076F6"
+                        BorderBrush="#FFEAEAEA"
+                        Command="{Binding CancelCreateCommand}"
+                        FontFamily="Arial"
+                        FontSize="12"
+                        Foreground="#FFFFFFFF"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Margin="-35,0" Orientation="Horizontal">
+                            <Grid>
+                                <Path
+                                    Width="17"
+                                    Height="10"
+                                    Data="M808.192 262.592a320.16 320.16 0 0 0-592.352 0A238.592 238.592 0 0 0 32 496C32 628.352 139.648 736 272 736h91.488a32 32 0 1 0 0-64H272A176.192 176.192 0 0 1 96 496a175.04 175.04 0 0 1 148.48-173.888l19.04-2.976 6.24-18.24C305.248 197.472 402.592 128 512 128a256 256 0 0 1 242.208 172.896l6.272 18.24 19.04 2.976A175.04 175.04 0 0 1 928 496c0 97.024-78.976 176-176 176h-97.28a32 32 0 1 0 0 64h97.28c132.352 0 240-107.648 240-240a238.592 238.592 0 0 0-183.808-233.408z"
+                                    Fill="White"
+                                    Stretch="Uniform" />
+                                <Path
+                                    Width="17"
+                                    Height="10"
+                                    Margin="0,5,0,0"
+                                    Data="M649.792 570.048a32 32 0 1 0 40.544-49.536l-158.048-129.408a32 32 0 0 0-40.576 0l-159.04 130.24a32.032 32.032 0 0 0 20.256 56.768 31.744 31.744 0 0 0 20.256-7.264L480 483.456V912a32 32 0 0 0 64 0V483.456l105.792 86.592z"
+                                    Fill="White"
+                                    Stretch="Uniform" />
+                            </Grid>
+                            <TextBlock
+                                x:Name="txtUploadFile"
+                                VerticalAlignment="Center"
+                                FontFamily="Arial"
+                                FontSize="11"
+                                Foreground="#FFFFFFFF"
+                                Text="上传文件" />
+                        </StackPanel>
+                    </Button>
+                    <Popup
+                        x:Name="uploadFilePop"
+                        AllowsTransparency="True"
+                        PlacementTarget="{Binding ElementName=btnUploadFile}">
+                        <Popup.Style>
+                            <Style TargetType="Popup">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=btnUploadFile}" Value="True">
+                                        <Setter Property="IsOpen" Value="True" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=uploadFilePop}" Value="True">
+                                        <Setter Property="IsOpen" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Popup.Style>
+                        <Grid
+                            Width="100"
+                            Height="Auto"
+                            Margin="0"
+                            HorizontalAlignment="Center">
+                            <Border
+                                Background="#FF3C3C3C"
+                                BorderBrush="#FF676767"
+                                BorderThickness="0.5,0,0.5,0.5"
+                                Opacity="1">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" Color="#FFFFFf" />
+                                </Border.Effect>
+                                <StackPanel Margin="0">
+                                    <Border BorderBrush="#FFAEAEAE" BorderThickness="0,0,0,1">
+                                        <Button
+                                            x:Name="btnFile"
+                                            Width="100"
+                                            Height="24"
+                                            Background="White"
+                                            BorderThickness="0"
+                                            Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                            CommandParameter="{x:Static Dock.Right}"
+                                            Content="上传文件"
+                                            FontFamily="Microsoft YaHei"
+                                            FontSize="14"
+                                            Foreground="Black" />
+                                    </Border>
+                                    <Border BorderBrush="#FFAEAEAE" BorderThickness="0,0,0,1">
+                                        <Button
+                                            x:Name="btnUploadFolder"
+                                            Width="100"
+                                            Height="24"
+                                            Background="White"
+                                            BorderThickness="0"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                                            Content="上传文件夹"
+                                            FontFamily="Microsoft YaHei"
+                                            FontSize="14"
+                                            Foreground="Black" />
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Popup>
+                    <Button
+                        x:Name="btnSyncLocal"
+                        Width="94"
+                        Height="30"
+                        Margin="5,0"
+                        VerticalAlignment="Top"
+                        materialDesign:ButtonAssist.CornerRadius="5"
+                        Background="#FF0076F6"
+                        BorderBrush="#FFEAEAEA"
+                        Command="{Binding SyncLocalCommand}"
+                        FontFamily="Arial"
+                        FontSize="12"
+                        Foreground="#FFFFFFFF"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Margin="-45,0" Orientation="Horizontal">
+                            <Path
+                                Width="18"
+                                Height="14"
+                                Data="M929.683983 464.630987a420.570958 420.570958 0 0 0-417.679332-372.698481l36.305972-35.020805A32.129179 32.129179 0 1 0 503.972356 10.645682l-88.355243 85.463617a32.129179 32.129179 0 0 0 0 45.302143l85.142325 88.033952A32.129179 32.129179 0 0 0 546.382873 184.785835l-27.309803-28.273678a356.633891 356.633891 0 0 1 254.141809 598.887903 32.129179 32.129179 0 1 0 47.229894 43.695684 420.89225 420.89225 0 0 0 109.23921-334.464757zM556.985502 795.561535a32.129179 32.129179 0 1 0-44.659559 46.266018L539.957037 869.137355A356.633891 356.633891 0 0 1 236.657583 285.350166 32.129179 32.129179 0 1 0 186.536064 244.224816 421.213542 421.213542 0 0 0 510.398192 933.395714c13.172964 0 26.667219 0 40.161474-2.249042l-36.305973 38.233723a32.129179 32.129179 0 0 0 46.266019 44.659559l85.142325-88.033951a32.129179 32.129179 0 0 0 0-45.302143z"
+                                Fill="White"
+                                Stretch="Uniform" />
+                            <TextBlock
+                                x:Name="txtSyncLocal"
+                                VerticalAlignment="Center"
+                                FontFamily="Arial"
+                                FontSize="11"
+                                Foreground="#FFFFFFFF"
+                                Text="获取最新版本" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="177" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Margin="10"
+                        FontSize="16"
+                        Foreground="#FF333333"
+                        Text="文件中心" />
+
+                    <Button
+                        x:Name="btnHelp"
+                        Grid.Row="1"
+                        Width="177"
+                        Height="40"
+                        VerticalAlignment="Top"
+                        materialDesign:ButtonAssist.CornerRadius="0"
+                        Background="#FFFFFFFF"
+                        BorderBrush="#FFFFFFFF"
+                        BorderThickness="0"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                        <StackPanel Width="170" Orientation="Horizontal">
+                            <Path
+                                Width="30"
+                                Height="18"
+                                Data="M912 208H427.872l-50.368-94.176A63.936 63.936 0 0 0 321.056 80H112c-35.296 0-64 28.704-64 64v736c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-608c0-35.296-28.704-64-64-64z m-800-64h209.056l68.448 128H912v97.984c-0.416 0-0.8-0.128-1.216-0.128H113.248c-0.416 0-0.8 0.128-1.248 0.128V144z m0 736v-96l1.248-350.144 798.752 1.216V784h0.064v96H112z"
+                                Fill="#FF979797"
+                                Stretch="Uniform" />
+                            <TextBlock
+                                VerticalAlignment="Top"
+                                FontSize="14"
+                                Foreground="#FF333333"
+                                Text="项目文档" />
+                        </StackPanel>
+                    </Button>
+                    <Border
+                        Grid.Row="1"
+                        BorderBrush="#FFF1F2F2"
+                        BorderThickness="0,0,0,1" />
+                    <Popup
+                        x:Name="FilePop"
+                        VerticalAlignment="Bottom"
+                        AllowsTransparency="True"
+                        PlacementTarget="{Binding ElementName=btnHelp}"
+                        StaysOpen="True">
+                        <Popup.Style>
+                            <Style TargetType="Popup">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=btnHelp}" Value="True">
+                                        <Setter Property="IsOpen" Value="True" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=FilePop}" Value="True">
+                                        <Setter Property="IsOpen" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Popup.Style>
+                    </Popup>
+                    <ScrollViewer
+                        Grid.Row="2"
+                        Height="120"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Auto">
+                        <Grid
+                            Grid.Row="2"
+                            Width="100"
+                            Height="Auto"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <StackPanel Margin="0">
+                                <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                    <Button
+                                        x:Name="btnAnimation"
+                                        Width="100"
+                                        Height="30"
+                                        Background="#FFFFFFFF"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding PolicySettingCommand}"
+                                        Content="动画设计"
+                                        FontFamily="Microsoft YaHei"
+                                        FontSize="14"
+                                        Foreground="#FF333333"
+                                        Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                                </Border>
+                                <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                    <Button
+                                        x:Name="btnDraw"
+                                        Width="100"
+                                        Height="30"
+                                        Background="#FFFFFFFF"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding PolicySettingCommand}"
+                                        Content="原画设计"
+                                        FontFamily="Microsoft YaHei"
+                                        FontSize="14"
+                                        Foreground="#FF333333"
+                                        Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                                </Border>
+                                <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                    <Button
+                                        x:Name="btnModeling"
+                                        Width="100"
+                                        Height="30"
+                                        Background="#FFFFFFFF"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding PolicySettingCommand}"
+                                        Content="建模设计"
+                                        FontFamily="Microsoft YaHei"
+                                        FontSize="14"
+                                        Foreground="#FF333333"
+                                        Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                                </Border>
+                                <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                    <Button
+                                        x:Name="btnPlane"
+                                        Width="100"
+                                        Height="30"
+                                        Background="#FFFFFFFF"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding PolicySettingCommand}"
+                                        Content="平面设计"
+                                        FontFamily="Microsoft YaHei"
+                                        FontSize="14"
+                                        Foreground="#FF333333"
+                                        Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+
+                    <Grid Grid.Row="3">
+                        <TextBlock
+                            Margin="10"
+                            FontSize="16"
+                            Foreground="#FF333333"
+                            Text="常用文件" />
+                    </Grid>
+                    <Grid
+                        Grid.Row="4"
+                        Width="177"
+                        Height="Auto"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <StackPanel Margin="0">
+                            <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                <Button
+                                    x:Name="btndocument1"
+                                    Width="177"
+                                    Height="30"
+                                    HorizontalAlignment="Left"
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding PolicySettingCommand}"
+                                    FontFamily="Microsoft YaHei"
+                                    FontSize="14"
+                                    Foreground="#FF979797"
+                                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <StackPanel
+                                        Width="177"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <Path
+                                            Width="15"
+                                            Height="30"
+                                            HorizontalAlignment="Left"
+                                            Data="M912 208H427.872l-50.368-94.176A63.936 63.936 0 0 0 321.056 80H112c-35.296 0-64 28.704-64 64v736c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-608c0-35.296-28.704-64-64-64z m-800-64h209.056l68.448 128H912v97.984c-0.416 0-0.8-0.128-1.216-0.128H113.248c-0.416 0-0.8 0.128-1.248 0.128V144z m0 736v-96l1.248-350.144 798.752 1.216V784h0.064v96H112z"
+                                            Fill="#FF979797"
+                                            Stretch="Uniform" />
+                                        <TextBlock
+                                            Margin="5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="#FF333333"
+                                            Text="常用文件1" />
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                            <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                <Button
+                                    x:Name="btnDocument2"
+                                    Width="177"
+                                    Height="30"
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding PolicySettingCommand}"
+                                    FontFamily="Microsoft YaHei"
+                                    FontSize="14"
+                                    Foreground="#FF979797"
+                                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <StackPanel
+                                        Width="177"
+                                        Height="30"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <Path
+                                            Width="15"
+                                            Height="30"
+                                            Data="M912 208H427.872l-50.368-94.176A63.936 63.936 0 0 0 321.056 80H112c-35.296 0-64 28.704-64 64v736c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-608c0-35.296-28.704-64-64-64z m-800-64h209.056l68.448 128H912v97.984c-0.416 0-0.8-0.128-1.216-0.128H113.248c-0.416 0-0.8 0.128-1.248 0.128V144z m0 736v-96l1.248-350.144 798.752 1.216V784h0.064v96H112z"
+                                            Fill="#FF979797"
+                                            Stretch="Uniform" />
+                                        <TextBlock
+                                            Margin="5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="#FF333333"
+                                            Text="常用文件2" />
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                            <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                <Button
+                                    x:Name="btnDocument3"
+                                    Width="177"
+                                    Height="30"
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding PolicySettingCommand}"
+                                    FontFamily="Microsoft YaHei"
+                                    FontSize="14"
+                                    Foreground="#FF979797"
+                                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <StackPanel
+                                        Width="177"
+                                        Height="30"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <Path
+                                            Width="15"
+                                            Height="30"
+                                            Data="M912 208H427.872l-50.368-94.176A63.936 63.936 0 0 0 321.056 80H112c-35.296 0-64 28.704-64 64v736c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-608c0-35.296-28.704-64-64-64z m-800-64h209.056l68.448 128H912v97.984c-0.416 0-0.8-0.128-1.216-0.128H113.248c-0.416 0-0.8 0.128-1.248 0.128V144z m0 736v-96l1.248-350.144 798.752 1.216V784h0.064v96H112z"
+                                            Fill="#FF979797"
+                                            Stretch="Uniform" />
+                                        <TextBlock
+                                            Margin="5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="#FF333333"
+                                            Text="常用文件3" />
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                            <Border BorderBrush="#FFF1F2F2" BorderThickness="0,0,0,1">
+                                <Button
+                                    x:Name="btnDocument4"
+                                    Width="177"
+                                    Height="30"
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding PolicySettingCommand}"
+                                    FontFamily="Microsoft YaHei"
+                                    FontSize="14"
+                                    Foreground="#FF979797"
+                                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <StackPanel
+                                        Width="177"
+                                        Height="30"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <Path
+                                            Width="15"
+                                            Height="30"
+                                            Data="M912 208H427.872l-50.368-94.176A63.936 63.936 0 0 0 321.056 80H112c-35.296 0-64 28.704-64 64v736c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-608c0-35.296-28.704-64-64-64z m-800-64h209.056l68.448 128H912v97.984c-0.416 0-0.8-0.128-1.216-0.128H113.248c-0.416 0-0.8 0.128-1.248 0.128V144z m0 736v-96l1.248-350.144 798.752 1.216V784h0.064v96H112z"
+                                            Fill="#FF979797"
+                                            Stretch="Uniform" />
+                                        <TextBlock
+                                            Margin="5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="#FF333333"
+                                            Text="常用文件4" />
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    Background="#FFFFFFFF"
+                    BorderBrush="#FFF4F4F4"
+                    BorderThickness="1" />
+                <!--  右边  -->
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Controls:SeachTextBox
+                            Grid.Row="0"
+                            Width="150"
+                            Height="30"
+                            Margin="10,0,0,0" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Width="100"
+                            Height="30"
+                            Margin="15,10,0,0"
+                            Padding="10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            VerticalContentAlignment="Center"
+                            Background="#FFFFFFFF"
+                            BorderBrush="#FFC5C5C5"
+                            BorderThickness="0.5"
+                            DisplayMemberPath="LineName"
+                            FontFamily="Arial Black"
+                            FontSize="14"
+                            Foreground="#FF7F7F7F"
+                            ItemsSource="{Binding SimplifyLineList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedIndex="0"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                            <ComboBoxItem>文档类型</ComboBoxItem>
+                            <ComboBoxItem>doc</ComboBoxItem>
+                            <ComboBoxItem>jpg</ComboBoxItem>
+                            <ComboBoxItem>psd</ComboBoxItem>
+                            <ComboBoxItem>3ds</ComboBoxItem>
+                        </ComboBox>
+
+                        <StackPanel Grid.Column="3" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#FF464646"
+                                Text="共" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#FF464646"
+                                Text="11" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#FF464646"
+                                Text="项目" />
+                        </StackPanel>
+                        <Border
+                            Grid.Column="4"
+                            Width="2"
+                            Height="16"
+                            Margin="10"
+                            Background="#FF515151"
+                            BorderThickness="0,0,1,0" />
+                        <Slider
+                            x:Name="FontSizeSlider"
+                            Grid.Column="5"
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Foreground="#FF797979"
+                            Maximum="24"
+                            Minimum="8"
+                            Style="{StaticResource BeautifySliderStyle}"
+                            Value="14" />
+                        <Button
+                            x:Name="btnMenu"
+                            Grid.Column="6"
+                            Width="50"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="1"
+                            Foreground="Transparent"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                            ToolTip="菜单">
+                            <Path
+                                Width="18"
+                                Data="M377.5 475h-215c-54 0-98-44-98-98V161c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98zM377.5 958.5h-215c-54 0-98-44-98-98v-216c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98zM861.5 476h-215c-54 0-98-44-98-98V162c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98z m-215-336c-12.1 0-22 9.9-22 22v216c0 12.1 9.9 22 22 22h215c12.1 0 22-9.9 22-22V162c0-12.1-9.9-22-22-22h-215zM861.5 959.5h-215c-54 0-98-44-98-98v-216c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98z"
+                                Fill="#FF525252"
+                                Stretch="Uniform" />
+                        </Button>
+                        <Button
+                            x:Name="btnRelated"
+                            Grid.Column="7"
+                            Width="50"
+                            Margin="-20,0"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="1"
+                            Command="{Binding ProjectRelatedCommand}"
+                            Foreground="Transparent"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                            ToolTip="相关信息">
+                            <Path
+                                Width="18"
+                                Data="M349.44 500.48h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM815.36 500.48h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM349.44 966.4h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM574.72 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-194.56c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v194.56c0 16.9984-13.7728 30.72-30.72 30.72zM677.12 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-194.56c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v194.56c0 16.9984-13.7728 30.72-30.72 30.72zM797.44 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-348.16c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v348.16c0 16.9984-13.7728 30.72-30.72 30.72zM912.64 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-348.16c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v348.16c0 16.9984-13.7728 30.72-30.72 30.72z"
+                                Fill="#FF525252"
+                                Stretch="Uniform" />
+                        </Button>
+                        <Button
+                            x:Name="btnUpDown"
+                            Grid.Column="8"
+                            Width="50"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            materialDesign:ButtonAssist.CornerRadius="0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="1"
+                            Command="{Binding ProjectRelatedCommand}"
+                            Foreground="Transparent"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                            ToolTip="文件类型">
+                            <Path
+                                Width="18"
+                                Data="M589.568 200.448v645.461333c0 4.096 3.498667 7.424 7.765333 7.424h58.197334c4.266667 0 7.722667-3.328 7.722666-7.424V284.586667l177.493334 133.845333c5.034667 3.797333 12.586667 0.341333 12.586666-5.845333V345.344a14.634667 14.634667 0 0 0-5.930666-11.690667l-207.616-156.586666c-20.352-15.317333-50.218667-1.493333-50.218667 23.381333z m-228.821333-22.357333V739.413333l-177.493334-133.845333c-5.034667-3.797333-12.586667-0.341333-12.586666 5.845333v67.242667c0 4.565333 2.133333 8.832 5.930666 11.690667l207.616 156.586666c20.352 15.274667 50.218667 1.450667 50.218667-23.296V178.090667A7.637333 7.637333 0 0 0 426.666667 170.666667H368.469333c-4.266667 0-7.722667 3.328-7.722666 7.424z"
+                                Fill="#FF525252"
+                                Stretch="Uniform" />
+                        </Button>
+                        <Popup
+                            x:Name="upDownPop"
+                            AllowsTransparency="True"
+                            PlacementTarget="{Binding ElementName=btnUpDown}">
+                            <Popup.Style>
+                                <Style TargetType="Popup">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=btnUpDown}" Value="True">
+                                            <Setter Property="IsOpen" Value="True" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=upDownPop}" Value="True">
+                                            <Setter Property="IsOpen" Value="True" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Popup.Style>
+                            <Grid
+                                Width="100"
+                                Height="Auto"
+                                Margin="0"
+                                HorizontalAlignment="Center">
+                                <Border
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="#FF838383"
+                                    BorderThickness="1"
+                                    Opacity="1">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFFFF" />
+                                    </Border.Effect>
+                                    <StackPanel Margin="0">
+                                        <Border BorderBrush="#FF676767" BorderThickness="0,0,0,1">
+                                            <Button
+                                                x:Name="btnFileName"
+                                                Width="80"
+                                                Height="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Background="#FFFFFFFF"
+                                                BorderBrush="#FF838383"
+                                                BorderThickness="0"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                                                Content="文件名称"
+                                                FontSize="11"
+                                                Foreground="#FF333333" />
+                                        </Border>
+                                        <Border BorderBrush="#FF676767" BorderThickness="0,0,0,1">
+                                            <Button
+                                                x:Name="btnFileSize"
+                                                Width="80"
+                                                Height="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Background="#FFFFFFFF"
+                                                BorderBrush="#FF838383"
+                                                BorderThickness="0"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                                                Content="文件大小"
+                                                FontSize="11"
+                                                Foreground="#FF333333" />
+                                        </Border>
+                                        <Border BorderBrush="#FF676767" BorderThickness="0,0,0,1">
+                                            <Button
+                                                x:Name="btnModifyTime"
+                                                Width="80"
+                                                Height="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Background="#FFFFFFFF"
+                                                BorderBrush="#FF838383"
+                                                BorderThickness="0"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                                                Content="修改时间"
+                                                FontSize="11"
+                                                Foreground="#FF333333" />
+                                        </Border>
+                                        <Border BorderBrush="#FF676767" BorderThickness="0,0,0,1">
+                                            <Button
+                                                x:Name="btnFileState"
+                                                Width="80"
+                                                Height="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Background="#FFFFFFFF"
+                                                BorderBrush="#FF838383"
+                                                BorderThickness="0"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                                                Content="文件状态"
+                                                FontSize="11"
+                                                Foreground="#FF333333" />
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                    <!--  文档展示  -->
+                    <Grid
+                        Grid.Row="1"
+                        Margin="20,0,20,0"
+                        Background="#FFFFFFFF">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <ItemsControl
+                                x:Name="itemsControl"
+                                IsEnabled="{Binding IsChecked, ElementName=IsEnabledCheckBox}"
+                                ItemsSource="{Binding CardList}"
+                                Style="{StaticResource FileItemsControl}"
+                                TextElement.FontWeight="{Binding Value, ElementName=FontSizeSlider}" />
+                        </ScrollViewer>
+                    </Grid>
+                    <!--  拖拽上传  -->
+                    <Grid Grid.Row="2">
+                        <Border
+                            Width="85"
+                            Height="85"
+                            Margin="0,-50,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            CornerRadius="40">
+                            <StackPanel Orientation="Vertical">
+                                <Image
+                                    Width="30"
+                                    Height="30"
+                                    Margin="0,15,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    Source="/Resource/Image/up.png" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="14"
+                                    Text="拖拽上传" />
+                            </StackPanel>
+
+                        </Border>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </materialDesign:DrawerHost>
+</UserControl>

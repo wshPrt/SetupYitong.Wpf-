@@ -1,0 +1,154 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.HelpCourse"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Border
+        Width="650"
+        Height="350"
+        Background="#FFFFFFFF"
+        BorderBrush="#FFF4F4F4"
+        BorderThickness="1"
+        CornerRadius="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
+                Background="#FFF5F6F7"
+                BorderBrush="#FFF5F6F7"
+                BorderThickness="1"
+                CornerRadius="10 10 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="20,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="Black"
+                        Text="帮助教程" />
+                    <Button
+                        Grid.Column="1"
+                        Height="50"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                        Foreground="#FF4D4D4D"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        ToolTip="关闭">
+                        <materialDesign:PackIcon
+                            Width="30"
+                            Height="30"
+                            Kind="Close" />
+                    </Button>
+                </Grid>
+            </Border>
+            <Border
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                BorderBrush="#FF424242"
+                BorderThickness="0,0.3,0,0" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Width="200"
+                        Height="170"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                        <Image Source="/Resource/Image/video.png" Stretch="Uniform" />
+                        <!--<Border.Background>
+                            <ImageBrush ImageSource="/Resource/Image/video.png" Stretch="Uniform" />
+                        </Border.Background>-->
+                        <Border.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray" />
+                                        <Setter Property="Opacity" Value="0.5" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Resources>
+                    </Border>
+                    <Border
+                        Grid.Column="1"
+                        Width="200"
+                        Height="170"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resource/Image/video.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
+                    <Border
+                        Grid.Column="2"
+                        Width="200"
+                        Height="170"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resource/Image/video.png" Stretch="Uniform" />
+                        </Border.Background>
+                    </Border>
+                </Grid>
+                <Grid
+                    Grid.Row="2"
+                    Margin="0,-30"
+                    VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="1.软件使用教程" />
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="2.新建项目教程" />
+                    <TextBlock
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        Text="3.管理团队教程" />
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

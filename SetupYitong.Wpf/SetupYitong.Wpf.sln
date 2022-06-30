@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetupYitong.Wpf", "SetupYitong.Wpf\SetupYitong.Wpf.csproj", "{1118F180-864A-44A2-8449-42854942F864}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetupYitong.Commons", "SetupYitong.Commons\SetupYitong.Commons.csproj", "{F06CFE9F-ADA2-400D-8E56-BFA581861E1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1118F180-864A-44A2-8449-42854942F864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1118F180-864A-44A2-8449-42854942F864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1118F180-864A-44A2-8449-42854942F864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1118F180-864A-44A2-8449-42854942F864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06CFE9F-ADA2-400D-8E56-BFA581861E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06CFE9F-ADA2-400D-8E56-BFA581861E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06CFE9F-ADA2-400D-8E56-BFA581861E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06CFE9F-ADA2-400D-8E56-BFA581861E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5A4926E-DDD2-44D9-97F5-3FA7DAB391A8}
+	EndGlobalSection
+EndGlobal

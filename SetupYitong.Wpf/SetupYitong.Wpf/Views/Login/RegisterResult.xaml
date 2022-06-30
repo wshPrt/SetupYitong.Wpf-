@@ -1,0 +1,82 @@
+﻿<Window
+    x:Class="SetupYitong.Wpf.Views.RegisterResult"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="clr-namespace:SetupYitong.Commons.WindowClose;assembly=SetupYitong.Commons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:event="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="RegisterResult"
+    Width="358"
+    Height="489"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <event:Interaction.Behaviors>
+        <behaviors:WindowCloseBehaviour Close="{Binding ToClose}" />
+    </event:Interaction.Behaviors>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="0"
+            Height="45"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Command="{Binding CloseCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+            Cursor="Hand"
+            Foreground="#FF525A5D"
+            Style="{StaticResource MaterialDesignFlatButton}">
+            <materialDesign:PackIcon
+                Width="20"
+                Height="20"
+                Kind="Close" />
+        </Button>
+        <Border
+            Grid.Row="1"
+            Width="80"
+            Height="80"
+            Background="#FF0089FF"
+            CornerRadius="60">
+            <Image
+                Width="60"
+                Height="50"
+                Source="/Resource/Image/check_1.png"
+                Stretch="Uniform" />
+        </Border>
+        <TextBlock
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="20"
+            Text="恭喜您,注册成功！" />
+        <Button
+            x:Name="btnReturn"
+            Grid.Row="3"
+            Width="320"
+            Height="32"
+            Margin="20,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:ButtonAssist.CornerRadius="5"
+            Background="#FF2198FA"
+            BorderBrush="Transparent"
+            Command="{Binding ReturnCommand}"
+            Content="返回登陆页"
+            FontFamily="Arial"
+            FontSize="14"
+            Foreground="White"
+            Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+    </Grid>
+</Window>

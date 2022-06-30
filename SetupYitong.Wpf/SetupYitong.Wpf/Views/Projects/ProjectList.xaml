@@ -1,0 +1,174 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.ProjectList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:SetupYitong.Wpf.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <materialDesign:DrawerHost
+        x:Name="DrawerHost"
+        BorderBrush="{DynamicResource MaterialDesignDivider}"
+        BorderThickness="0"
+        BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
+        <materialDesign:DrawerHost.Style>
+            <Style BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}" TargetType="materialDesign:DrawerHost">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="True">
+                        <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </materialDesign:DrawerHost.Style>
+        <!--  右边抽屉  -->
+        <materialDesign:DrawerHost.RightDrawerContent>
+            <StackPanel Width="Auto">
+                <ContentControl x:Name="ctlProjectDetails" prism:RegionManager.RegionName="ProjectDetailsRegion" />
+            </StackPanel>
+        </materialDesign:DrawerHost.RightDrawerContent>
+
+        <Grid VerticalAlignment="Top" Background="#FFFFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="15,0,15,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Controls:SeachTextBox
+                    Grid.Row="0"
+                    Width="150"
+                    Height="30"
+                    Margin="10,0,0,0" />
+                <ComboBox
+                    Grid.Column="1"
+                    Width="150"
+                    Height="30"
+                    Margin="30,15"
+                    Padding="10,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    VerticalContentAlignment="Center"
+                    Background="#FFFFFFFF"
+                    BorderBrush="#FFC5C5C5"
+                    BorderThickness="0.5"
+                    DisplayMemberPath="LineName"
+                    FontFamily="Arial Black"
+                    FontSize="14"
+                    Foreground="#FF7F7F7F"
+                    ItemsSource="{Binding SimplifyLineList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedIndex="0"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem>项目分组</ComboBoxItem>
+                </ComboBox>
+                <Button
+                    x:Name="btnNewGroup"
+                    Grid.Column="2"
+                    Width="70"
+                    Height="32"
+                    Padding="-5,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding NewGroupCommand}"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                    <TextBlock
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        FontSize="13"
+                        Foreground="#FFC5C5C5"
+                        Text="+新建分组" />
+                </Button>
+                <StackPanel Grid.Column="4" Orientation="Horizontal">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="#FF464646"
+                        Text="共" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="#FF464646"
+                        Text="6" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="#FF464646"
+                        Text="项目" />
+                </StackPanel>
+                <Border
+                    Grid.Column="5"
+                    Width="2"
+                    Height="25"
+                    Margin="10"
+                    Background="#FF515151"
+                    BorderThickness="0,0,1,0" />
+                <Button
+                    x:Name="btnMenu"
+                    Grid.Column="6"
+                    Width="50"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Foreground="Transparent"
+                    Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                    ToolTip="菜单">
+                    <Path
+                        Width="18"
+                        Data="M377.5 475h-215c-54 0-98-44-98-98V161c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98zM377.5 958.5h-215c-54 0-98-44-98-98v-216c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98zM861.5 476h-215c-54 0-98-44-98-98V162c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98z m-215-336c-12.1 0-22 9.9-22 22v216c0 12.1 9.9 22 22 22h215c12.1 0 22-9.9 22-22V162c0-12.1-9.9-22-22-22h-215zM861.5 959.5h-215c-54 0-98-44-98-98v-216c0-54 44-98 98-98h215c54 0 98 44 98 98v216c0 54-44 98-98 98z"
+                        Fill="#FF525252"
+                        Stretch="Uniform" />
+                </Button>
+                <Button
+                    x:Name="btnRelated"
+                    Grid.Column="7"
+                    Width="50"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Command="{Binding ProjectRelatedCommand}"
+                    Foreground="Transparent"
+                    Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                    ToolTip="相关信息">
+                    <Path
+                        Width="18"
+                        Data="M349.44 500.48h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM815.36 500.48h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM349.44 966.4h-143.36c-73.4208 0-133.12-59.6992-133.12-133.12v-143.36c0-73.4208 59.6992-133.12 133.12-133.12h143.36c73.4208 0 133.12 59.6992 133.12 133.12v143.36c0 73.4208-59.7504 133.12-133.12 133.12z m-143.36-348.16c-39.5264 0-71.68 32.1536-71.68 71.68v143.36c0 39.5264 32.1536 71.68 71.68 71.68h143.36c39.5264 0 71.68-32.1536 71.68-71.68v-143.36c0-39.5264-32.1536-71.68-71.68-71.68h-143.36zM574.72 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-194.56c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v194.56c0 16.9984-13.7728 30.72-30.72 30.72zM677.12 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-194.56c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v194.56c0 16.9984-13.7728 30.72-30.72 30.72zM797.44 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-348.16c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v348.16c0 16.9984-13.7728 30.72-30.72 30.72zM912.64 966.4c-16.9472 0-30.72-13.7728-30.72-30.72v-348.16c0-16.9472 13.7728-30.72 30.72-30.72s30.72 13.7728 30.72 30.72v348.16c0 16.9984-13.7728 30.72-30.72 30.72z"
+                        Fill="#FF525252"
+                        Stretch="Uniform" />
+                </Button>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Margin="20,0,20,0"
+                Background="#FFFFFFFF">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl
+                        x:Name="itemsControl"
+                        Margin="1,0,-1,0"
+                        ItemsSource="{Binding CardList}"
+                        Style="{StaticResource ColorItemsControl}" />
+                </ScrollViewer>
+
+                <!--<ContentControl x:Name="ctlContent" prism:RegionManager.RegionName="33333Content" />-->
+            </Grid>
+        </Grid>
+    </materialDesign:DrawerHost>
+</UserControl>

@@ -1,0 +1,220 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.TemplateDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Border
+        Width="600"
+        Height="350"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Background="#FFFFFFFF"
+        BorderBrush="#FFF5F6F7"
+        BorderThickness="1"
+        CornerRadius="10">
+        <Grid Background="#FFFFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FFEEEEEE">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    x:Name="btnProject"
+                    Margin="15,0,0,0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding BacktTrackProjectCommand}"
+                    Foreground="Black"
+                    Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Text="模版详情" />
+                </Button>
+                <Button
+                    Grid.Column="1"
+                    Height="50"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ToolTip}"
+                    Foreground="#FF767777"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    ToolTip="关闭">
+                    <materialDesign:PackIcon
+                        Width="30"
+                        Height="30"
+                        Kind="Close" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ItemsControl
+                    x:Name="itemsControl"
+                    Grid.Row="0"
+                    Grid.RowSpan="6"
+                    Grid.Column="0"
+                    Margin="20,5"
+                    ItemsSource="{Binding CardList}"
+                    Style="{StaticResource DetailsTemplateItems}" />
+                <StackPanel
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Margin="25,0"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="可见范围:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="公开模版" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Margin="25,0"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="创 建 人:" />
+                    <TextBlock
+                        Margin="15,0"
+                        FontSize="14"
+                        Text="李明明" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Margin="25,0"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="创建时间:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="2021.10.13" />
+                </StackPanel>
+                <!--  右侧  -->
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="模版类型:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="动画设计" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="模版名称:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="光线传媒动画设计" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="使用场景:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="光线传媒动公司的动画模版" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="模版描述:" />
+                    <TextBlock
+                        Margin="10,0"
+                        FontSize="14"
+                        Text="适用于三维动画制作、包括故事脚本、" />
+                </StackPanel>
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="70,0,0,0"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    Text="建模、渲染、动画、特效等环节。" />
+                <StackPanel
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="模版流程:" />
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="14"
+                            Text="前期-- 剧本、任务设定、场景设定、" />
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="14"
+                            Text="故事版、气氛图、动态故事版。" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <StackPanel Margin="60,0" Orientation="Vertical">
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="14"
+                            Text="中期-- 表演、草稿、关键动作、原画、" />
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="14"
+                            Text="上色、休线和补色。" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <StackPanel Margin="60,0" Orientation="Vertical">
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="14"
+                            Text="后期-- 合成、调色、渲染、音效。" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

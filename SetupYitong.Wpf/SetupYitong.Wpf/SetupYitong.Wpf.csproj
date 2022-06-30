@@ -1,0 +1,166 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>SetupYitong.Wpf</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resource\Image\card1.png" />
+    <None Remove="Resource\Image\card2.png" />
+    <None Remove="Resource\Image\card3.png" />
+    <None Remove="Resource\Image\card4.png" />
+    <None Remove="Resource\Image\card5.png" />
+    <None Remove="Resource\Image\check.png" />
+    <None Remove="Resource\Image\check_1.png" />
+    <None Remove="Resource\Image\cover.png" />
+    <None Remove="Resource\Image\detail.png" />
+    <None Remove="Resource\Image\download.png" />
+    <None Remove="Resource\Image\excel.png" />
+    <None Remove="Resource\Image\file.png" />
+    <None Remove="Resource\Image\jpg.png" />
+    <None Remove="Resource\Image\kp.png" />
+    <None Remove="Resource\Image\lock.png" />
+    <None Remove="Resource\Image\lock_write.png" />
+    <None Remove="Resource\Image\logo.png" />
+    <None Remove="Resource\Image\logoTitle.png" />
+    <None Remove="Resource\Image\Message.png" />
+    <None Remove="Resource\Image\message1.png" />
+    <None Remove="Resource\Image\people.png" />
+    <None Remove="Resource\Image\personal.png" />
+    <None Remove="Resource\Image\phone.png" />
+    <None Remove="Resource\Image\refresh.png" />
+    <None Remove="Resource\Image\sync.png" />
+    <None Remove="Resource\Image\text.png" />
+    <None Remove="Resource\Image\triangle.png" />
+    <None Remove="Resource\Image\u185.png" />
+    <None Remove="Resource\Image\u191.png" />
+    <None Remove="Resource\Image\up.png" />
+    <None Remove="Resource\Image\uploading.png" />
+    <None Remove="Resource\Image\user_line.png" />
+    <None Remove="Resource\Image\video.png" />
+    <None Remove="Resource\Image\word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\cover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\lock_write.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\up.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SetupYitong.Commons\SetupYitong.Commons.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\card1.png" />
+    <Resource Include="Resource\Image\card2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\card3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\card4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\card5.png" />
+    <Resource Include="Resource\Image\check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\check_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\detail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\download.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\excel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\file.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\jpg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\lock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\logoTitle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\Message.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\message1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\people.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\personal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\phone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\sync.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\text.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\triangle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\u185.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\u191.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\uploading.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\user_line.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\video.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Image\word.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>

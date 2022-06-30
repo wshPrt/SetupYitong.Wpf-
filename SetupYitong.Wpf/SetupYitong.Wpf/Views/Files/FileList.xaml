@@ -1,0 +1,137 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.FileList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <DataGrid
+        x:Name="dg"
+        materialDesign:DataGridAssist.CornerRadius="0"
+        materialDesign:ScrollViewerAssist.CornerRectangleVisibility="Hidden"
+        AutoGenerateColumns="False"
+        Background="#FFFFFFFF"
+        BorderBrush="#FFCDCDCD"
+        CanUserSortColumns="True"
+        Foreground="#FF383838"
+        IsReadOnly="True"
+        ItemsSource="{Binding FileInfoList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+        SelectedItem="{Binding SelectedRow, Mode=TwoWay}"
+        SelectionMode="Single">
+        <DataGrid.ColumnHeaderStyle>
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#FF383838" />
+                <Setter Property="FontFamily" Value="Arial Black" />
+                <Setter Property="BorderBrush" Value="#FF5E5D5D" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Margin" Value="15,0" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="DataGridColumnHeader">
+                            <Border
+                                Background="#FFFFFFFF"
+                                BorderBrush="LightGray"
+                                BorderThickness="0"
+                                CornerRadius="0">
+                                <ContentPresenter
+                                    Width="Auto"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </DataGrid.ColumnHeaderStyle>
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Width="Auto" Header="文件名">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                            <Image
+                                Width="25"
+                                Height="20"
+                                VerticalAlignment="Center"
+                                Source="{Binding FileNameURL}" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Text="{Binding FileName, Mode=TwoWay}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn Width="Auto" Header="当前状态">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Image
+                                Width="25"
+                                Height="20"
+                                Source="{Binding CurrentState}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn
+                Width="Auto"
+                Binding="{Binding FileSize, Mode=TwoWay}"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
+                ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                Header="文件大小" />
+            <materialDesign:DataGridTextColumn
+                Width="Auto"
+                Binding="{Binding ModifyTime, Mode=TwoWay}"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                Header="修改时间" />
+            <DataGridTemplateColumn Width="Auto" Header="详情">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Button
+                                x:Name="btnDetails"
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                materialDesign:ButtonAssist.CornerRadius="0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}"
+                                FontSize="14"
+                                Foreground="#FFCDCDCD"
+                                Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                <Image
+                                    Width="25"
+                                    Height="20"
+                                    Margin="-15,0"
+                                    Source="{Binding Details}" />
+                                <!--<Path
+                                    Width="25"
+                                    Height="20"
+                                    Data="M797.909333 219.818667h-91.306666v-21.333334a27.392 27.392 0 0 0-54.784 0v21.333334H371.754667v-21.333334a27.392 27.392 0 1 0-54.784 0v21.333334H225.621333c-30.293333 0-54.784 24.490667-54.784 54.784v523.605333c0 30.293333 24.490667 54.784 54.826667 54.784H797.866667c30.293333 0 54.826667-24.618667 54.826666-54.784V274.602667c0-30.293333-24.490667-54.784-54.826666-54.784zM317.013333 270.805333v19.029334a27.392 27.392 0 0 0 54.784 0v-19.029334h280.064v19.029334a27.392 27.392 0 0 0 54.784 0v-19.029334h95.146667v95.146667H221.866667v-95.146667h95.104z m487.04 533.205334H219.989333V414.592h584.021334v389.418667zM341.333333 512.042667h48.64a24.362667 24.362667 0 0 1 0 48.725333H341.333333a24.32 24.32 0 1 1 0-48.682667V512z m146.090667 0h48.682667a24.362667 24.362667 0 0 1 0 48.725333h-48.64a24.32 24.32 0 0 1 0-48.682667L487.424 512z m146.090667 0h48.768a24.362667 24.362667 0 0 1 0 48.725333h-48.768a24.32 24.32 0 1 1 0-48.682667V512zM341.333333 659.626667h48.768a24.362667 24.362667 0 0 1 0 48.682666H341.333333a24.32 24.32 0 0 1 0-48.682666z m146.176 0h48.682667a24.362667 24.362667 0 0 1 0 48.682666h-48.725333a24.32 24.32 0 0 1 0-48.682666z"
+                                    Fill="#FFB0B0B0"
+                                    Stretch="Uniform" />-->
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

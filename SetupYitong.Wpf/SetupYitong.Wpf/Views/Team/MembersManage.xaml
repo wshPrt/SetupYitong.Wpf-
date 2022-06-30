@@ -1,0 +1,245 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.MembersManage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:SetupYitong.Wpf.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Controls:MembersSeachTextBox
+                Grid.Row="0"
+                Margin="5,10,5,0"
+                VerticalAlignment="Center" />
+            <TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="武汉光魔方科技公司" />
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <RadioButton
+                    x:Name="rbtnPaintingDepart"
+                    Grid.Column="0"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Content="原画部(12)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnPlaneDesignDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="平面设计部(12)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnOriginalityDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="创意设计部(6)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnTechnologyDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="技术部(44)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnPersonnelDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="人事部(2)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnAssetsDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="资产部(2)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnOperationsDepart"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="产品运维(6)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+                <RadioButton
+                    x:Name="rbtnUnassignedPersonnel"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    VerticalAlignment="Center"
+                    Content="未分配人员(11)"
+                    FontSize="14"
+                    Style="{StaticResource NavTabManageStyle}" />
+            </StackPanel>
+        </Grid>
+        <!--  中间分割线  -->
+        <Border
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            BorderBrush="Black"
+            BorderThickness="0.2,0,0,0" />
+        <Grid Grid.Column="1" Margin="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="原画部(12)" />
+            <DataGrid
+                x:Name="dg"
+                Grid.Row="2"
+                materialDesign:DataGridAssist.CornerRadius="0"
+                materialDesign:ScrollViewerAssist.CornerRectangleVisibility="Hidden"
+                AutoGenerateColumns="False"
+                Background="#FFFFFFFF"
+                BorderBrush="#FFCDCDCD"
+                CanUserSortColumns="True"
+                Foreground="#FF383838"
+                IsReadOnly="True"
+                ItemsSource="{Binding MembersList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                SelectedItem="{Binding SelectedRow, Mode=TwoWay}"
+                SelectionMode="Single">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="#FF383838" />
+                        <Setter Property="FontFamily" Value="Arial Black" />
+                        <Setter Property="BorderBrush" Value="#FF5E5D5D" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                        <Setter Property="Margin" Value="15,0" />
+                        <Setter Property="VerticalAlignment" Value="Bottom" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="DataGridColumnHeader">
+                                    <Border
+                                        Background="#FFFFFFFF"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="0"
+                                        CornerRadius="0">
+                                        <ContentPresenter
+                                            Width="Auto"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding Name, Mode=TwoWay}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
+                        ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                        Header="姓名" />
+                    <materialDesign:DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding Number, Mode=TwoWay}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                        ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                        Header="工号" />
+                    <DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding PhoneNo, Mode=TwoWay}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"
+                        ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                        Header="手机号" />
+                    <materialDesign:DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Role, Mode=TwoWay}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                        Header="角色" />
+                    <materialDesign:DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Position, Mode=TwoWay}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                        Header="职位" />
+                    <DataGridTemplateColumn Width="Auto" Header="查看详情">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button
+                                        x:Name="btnDetails"
+                                        Width="Auto"
+                                        Height="Auto"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        materialDesign:ButtonAssist.CornerRadius="0"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding DataContext.UserDetailsCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}"
+                                        FontSize="14"
+                                        Foreground="#FFCDCDCD"
+                                        Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                        <!--<i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <i:InvokeCommandAction Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>-->
+                                        <materialDesign:PackIcon
+                                            Width="25"
+                                            Height="20"
+                                            Background="Transparent"
+                                            BorderBrush="#FFCDCDCD"
+                                            BorderThickness="0"
+                                            Foreground="Gray"
+                                            Kind="Magnify" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

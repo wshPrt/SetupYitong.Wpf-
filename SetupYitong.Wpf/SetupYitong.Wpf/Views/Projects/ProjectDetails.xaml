@@ -1,0 +1,318 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.ProjectDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="#FFF4F4F4"
+    mc:Ignorable="d">
+    <Grid Background="#FFEEEEEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="58" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FFEEEEEE">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Column="0"
+                Margin="10,0,0,0"
+                VerticalAlignment="Center">
+                <materialDesign:PackIcon
+                    Width="18"
+                    Height="20"
+                    Foreground="#FF686868"
+                    Kind="ChevronLeft" />
+            </TextBlock>
+            <Button
+                x:Name="btnProject"
+                Margin="15,0,0,0"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Foreground="#FF686868"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                <!--  Command="{Binding GoBackProjectCommand}"  -->
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="项目详情" />
+            </Button>
+        </Grid>
+        <UniformGrid Grid.Row="1" />
+        <Border
+            Grid.Row="1"
+            Width="260"
+            Height="Auto"
+            Margin="5"
+            Background="#FFF4F4F4"
+            BorderBrush="#FFF4F4F4"
+            BorderThickness="1"
+            CornerRadius="10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        Width="200"
+                        Height="150"
+                        VerticalAlignment="Bottom"
+                        Source="/Resource/Image/detail.png" />
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock FontSize="11" Text="项目名称:" />
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="11"
+                            Text="原画设计" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="2"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock FontSize="11" Text="时间:" />
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="11"
+                            Text="2021.12.11 - 2022.01.09" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="3"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock FontSize="11" Text="分组:" />
+                        <TextBlock
+                            Margin="10,0"
+                            FontSize="11"
+                            Text="原画类" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="4"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock FontSize="11" Text="简介:" />
+                        <TextBlock
+                            Width="115"
+                            Margin="10,0"
+                            FontSize="11"
+                            Text="这是一段项目的描述,在创建项目的时间填写,介绍项目的主要信息。"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="5"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="11"
+                            Text="云端:" />
+                        <Button
+                            x:Name="btnSynchrony"
+                            Width="70"
+                            Height="25"
+                            Margin="5,0"
+                            Padding="-5,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Background="#FF0076F6"
+                            BorderBrush="Transparent"
+                            Command="{Binding SynchronyCommand}"
+                            Content="同步到云端"
+                            FontFamily="Arial"
+                            FontSize="11"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="6"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock FontSize="11" Text="4.3T/10T" />
+                        <TextBlock
+                            Margin="120,0"
+                            HorizontalAlignment="Right"
+                            FontFamily="11"
+                            Foreground="#FF0F8EFF"
+                            Text="扩容" />
+                    </StackPanel>
+                    <ProgressBar
+                        Grid.Row="6"
+                        Width="200"
+                        VerticalAlignment="Bottom"
+                        Background="#FFE0E0E0"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Foreground="#FF27B9B6"
+                        Value="45" />
+                    <StackPanel
+                        Grid.Row="7"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="11"
+                            Foreground="#FFB0B5C0"
+                            Text="最近同步:" />
+                        <TextBlock
+                            Margin="10,0"
+                            VerticalAlignment="Center"
+                            FontSize="11"
+                            Foreground="#FFB0B5C0"
+                            Text="2021.12.14 14:22" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="8"
+                        Margin="30,5"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="11"
+                            Text="成员:" />
+                        <WrapPanel Orientation="Vertical">
+                            <StackPanel Margin="2" Orientation="Horizontal">
+                                <Button
+                                    Grid.Column="0"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Background="Gray"
+                                    BorderBrush="Gray"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                    ToolTip="用户">
+                                    <materialDesign:PackIcon
+                                        Width="20"
+                                        Height="20"
+                                        Margin="-2,0"
+                                        Foreground="White"
+                                        Kind="Account" />
+                                </Button>
+                                <TextBlock
+                                    Margin="5,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="11"
+                                    Text="李明明" />
+                            </StackPanel>
+                            <StackPanel Margin="2" Orientation="Horizontal">
+                                <Button
+                                    Grid.Column="0"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Background="Gray"
+                                    BorderBrush="Gray"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                    ToolTip="用户">
+                                    <materialDesign:PackIcon
+                                        Width="20"
+                                        Height="20"
+                                        Margin="-2,0"
+                                        Foreground="White"
+                                        Kind="Account" />
+                                </Button>
+                                <TextBlock
+                                    Margin="5,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="11"
+                                    Text="Peter Chen" />
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <!--<ListBox Width="150" Height="50" Margin="5 0 0 0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="www" FontSize="15"></TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>-->
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+        <!--  底部横线  -->
+        <Border
+            Grid.Row="2"
+            VerticalAlignment="Top"
+            BorderBrush="#FFE1E1E1"
+            BorderThickness="1" />
+        <StackPanel
+            Grid.Row="2"
+            Margin="11"
+            Orientation="Horizontal">
+            <Button
+                x:Name="btnDel"
+                Width="70"
+                Height="32"
+                Margin="5"
+                Padding="-5,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FFFD0040"
+                BorderBrush="Transparent"
+                Command="{Binding DelWarnCommand}"
+                Content="项目归档"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+            <Button
+                x:Name="btnArchive"
+                Width="70"
+                Height="32"
+                Margin="5"
+                Padding="-5,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FF0076F6"
+                BorderBrush="Transparent"
+                Command="{Binding ProjectArchiveCommand}"
+                Content="项目归档"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+            <Button
+                x:Name="btnSetting"
+                Width="70"
+                Height="32"
+                Margin="5"
+                Padding="-5,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FF0076F6"
+                BorderBrush="Transparent"
+                Command="{Binding SettingCommand}"
+                Content="项目设置"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

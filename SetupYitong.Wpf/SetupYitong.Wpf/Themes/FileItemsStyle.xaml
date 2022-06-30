@@ -1,0 +1,239 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:UI_Vision"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Style x:Key="FileItemsControl" TargetType="ItemsControl">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border
+                        Width="120"
+                        Height="Auto"
+                        Margin="5"
+                        BorderBrush="Transparent"
+                        BorderThickness="1">
+                        <!--<Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="10"
+                                Opacity="0.1"
+                                ShadowDepth="0"
+                                Color="Black" />
+                        </Border.Effect>-->
+                        <Grid Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Button
+                                x:Name="btnImage"
+                                Width="Auto"
+                                Height="Auto"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ClickImageCommand}">
+                                <Image
+                                    Width="240"
+                                    Height="90"
+                                    Source="{Binding ImageURI}" />
+                            </Button>
+                            <Popup
+                                x:Name="popMenu"
+                                Grid.Row="1"
+                                AllowsTransparency="True"
+                                HorizontalOffset="-70"
+                                Placement="Right"
+                                PlacementTarget="{Binding ElementName=btnImage}"
+                                StaysOpen="True">
+                                <Popup.Style>
+                                    <Style TargetType="Popup">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=btnImage}" Value="True">
+                                                <Setter Property="IsOpen" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsMouseOver, Mode=OneWay, ElementName=bdMenu}" Value="True">
+                                                <Setter Property="IsOpen" Value="True" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Popup.Style>
+                                <Border
+                                    x:Name="bdMenu"
+                                    Width="100"
+                                    Height="187"
+                                    VerticalAlignment="Top"
+                                    Background="#FFFFFFFF"
+                                    BorderBrush="LightGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0">
+                                    <!--<StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Orientation="Vertical">-->
+
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                        </Grid.RowDefinitions>
+                                        <Border
+                                            Grid.Row="0"
+                                            Width="100"
+                                            VerticalAlignment="Top"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="0.5" />
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Margin="0,10,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            FontSize="12"
+                                            Foreground="Black"
+                                            Text="打开" />
+                                        <Border
+                                            Grid.Row="1"
+                                            Width="100"
+                                            VerticalAlignment="Top"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                        <StackPanel
+                                            Grid.Row="1"
+                                            Margin="0,5,0,0"
+                                            Orientation="Vertical">
+                                            <Path
+                                                Width="20"
+                                                Height="15"
+                                                Data="M800 448H704V320c0-106.4-85.6-192-192-192S320 213.6 320 320v128H224c-17.6 0-32 14.4-32 32v384c0 17.6 14.4 32 32 32h576c17.6 0 32-14.4 32-32V480c0-17.6-14.4-32-32-32zM512 736c-35.2 0-64-28.8-64-64s28.8-64 64-64 64 28.8 64 64-28.8 64-64 64z m128-288H384V320c0-70.4 57.6-128 128-128s128 57.6 128 128v128z"
+                                                Fill="#FFFF8B25"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="12"
+                                                Foreground="#FFFF8B25"
+                                                Text="锁定文件" />
+                                        </StackPanel>
+                                        <Border
+                                            Grid.Row="1"
+                                            VerticalAlignment="Bottom"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                        <TextBlock
+                                            Grid.Row="2"
+                                            Margin="0,5,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="top"
+                                            FontSize="12"
+                                            Foreground="Black"
+                                            Text="同步到本地" />
+                                        <Border
+                                            Grid.Row="2"
+                                            VerticalAlignment="Bottom"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                        <Button
+                                            x:Name="btnDelFile"
+                                            Grid.Row="3"
+                                            Width="Auto"
+                                            Height="Auto"
+                                            Margin="0,5,0,0"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DelFileCommand}">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="top"
+                                                FontSize="12"
+                                                Foreground="Black"
+                                                Text="删除文件" />
+                                        </Button>
+                                        <Border
+                                            Grid.Row="3"
+                                            VerticalAlignment="Bottom"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                        <Button
+                                            x:Name="btnFile"
+                                            Grid.Row="4"
+                                            Width="Auto"
+                                            Height="Auto"
+                                            Margin="0,5,0,0"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.FileDetailsCommand}">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="top"
+                                                FontSize="12"
+                                                Foreground="Black"
+                                                Text="文件详情" />
+                                        </Button>
+                                        <Border
+                                            Grid.Row="4"
+                                            VerticalAlignment="Bottom"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                        <Button
+                                            x:Name="btnHistory"
+                                            Grid.Row="5"
+                                            Width="Auto"
+                                            Height="Auto"
+                                            Margin="0,5,0,0"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.VersionHistoryCommand}">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="top"
+                                                FontSize="12"
+                                                Foreground="Black"
+                                                Text="版本历史" />
+                                        </Button>
+
+                                        <Border
+                                            Grid.Row="5"
+                                            VerticalAlignment="Bottom"
+                                            BorderBrush="#FFE1E1E1"
+                                            BorderThickness="1" />
+                                    </Grid>
+                                    <!--</StackPanel>-->
+                                </Border>
+                            </Popup>
+                            <Image
+                                Width="30"
+                                Height="30"
+                                Margin="80,60,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Source="{Binding TitleURI}" />
+                            <Grid Grid.Row="1">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#FF434343"
+                                    Text="{Binding LeftText}" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

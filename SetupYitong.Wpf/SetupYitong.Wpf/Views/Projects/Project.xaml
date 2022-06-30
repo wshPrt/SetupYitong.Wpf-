@@ -1,0 +1,88 @@
+﻿<UserControl
+    x:Class="SetupYitong.Wpf.Views.Project"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SetupYitong.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid Background="#FFFFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FFEEEEEE">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <RadioButton
+                x:Name="rbtnProjectList"
+                Grid.Column="0"
+                Width="Auto"
+                Height="Auto"
+                VerticalAlignment="Center"
+                CommandParameter="SetupYitong.Wpf.Views.ProjectList"
+                Content="项目列表"
+                FontSize="14"
+                IsChecked="True"
+                Style="{StaticResource NavTabButtonStyle}" />
+            <RadioButton
+                x:Name="rbtnProjectBoard"
+                Grid.Column="1"
+                Width="Auto"
+                Height="Auto"
+                VerticalAlignment="Center"
+                CommandParameter="SetupYitong.Wpf.Views.ProjectBoard"
+                Content="项目看板"
+                FontSize="14"
+                Style="{StaticResource NavTabButtonStyle}" />
+            <Button
+                x:Name="btnWarehouse"
+                Grid.Column="2"
+                Width="97"
+                Height="32"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FFC6C6C6"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Command="{Binding ProjectWareHouseCommand}"
+                Content="项目仓库"
+                Foreground="#FF282F3F"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+            <Button
+                x:Name="btnAddProject"
+                Grid.Column="3"
+                Width="97"
+                Height="32"
+                Margin="8"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Background="#FF0076F6"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Command="{Binding AddProjectCommand}"
+                Content="+新建项目"
+                Foreground="#FFFFFF"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <ContentControl
+                x:Name="ctlContent"
+                Grid.Row="2"
+                Content="{Binding ProjectContent}" />
+        </Grid>
+        <!--<ContentControl
+            x:Name="ctlProject"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            prism:RegionManager.RegionName="ProjectRegion"
+            Background="#FF272727" />-->
+    </Grid>
+</UserControl>

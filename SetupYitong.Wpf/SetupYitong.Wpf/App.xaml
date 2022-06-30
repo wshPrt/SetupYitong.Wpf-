@@ -1,0 +1,63 @@
+﻿<prism:PrismApplication
+    x:Class="SetupYitong.Wpf.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SetupYitong.Wpf"
+    xmlns:prism="http://prismlibrary.com/">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  seachtextbox style  -->
+            <SolidColorBrush x:Key="seachTextBoxBrush" Color="#FFB7B3B3" />
+            <PathFigureCollection x:Key="seachTextBoxPath">
+                M544.448 499.2l284.576-284.576a32 32 0 0 0-45.248-45.248L499.2 453.952 214.624 169.376a32 32 0 0 0-45.248 45.248l284.576 284.576-284.576 284.576a32 32 0 0 0 45.248 45.248l284.576-284.576 284.576 284.576a31.904 31.904 0 0 0 45.248 0 32 32 0 0 0 0-45.248L544.448 499.2z
+            </PathFigureCollection>
+            <DrawingImage x:Key="seachTextBoxClose">
+                <DrawingImage.Drawing>
+                    <GeometryDrawing Brush="{StaticResource seachTextBoxBrush}">
+                        <GeometryDrawing.Geometry>
+                            <PathGeometry Figures="{StaticResource seachTextBoxPath}" FillRule="EvenOdd" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingImage.Drawing>
+            </DrawingImage>
+            <PathFigureCollection x:Key="seachTextBoxSeachPath">
+                M1007.20164 932.508935L832.318719 757.626013c63.193829-79.492237 100.690167-180.482375 100.690167-291.071575 0-259.474661-206.479836-465.954497-465.954497-465.954497s-465.954497 211.779318-465.954496 465.954497 206.479836 465.954497 465.954496 465.954497c110.5892 0 211.579338-37.596328 291.071575-100.690167l174.882922 174.882921c10.598965 10.598965 21.19793 15.898447 37.096377 15.898448 10.598965 0 26.497412-5.299482 37.096377-15.898448 21.09794-21.29792 21.09794-53.094815 0-74.192754zM467.054389 826.619275c-195.880871 0-365.36432-158.884484-365.36432-360.064837s164.183966-360.064837 365.36432-360.064837 360.064837 164.183966 360.064838 360.064837c0 195.880871-164.083976 360.064837-360.064838 360.064837z
+            </PathFigureCollection>
+            <DrawingImage x:Key="seachTextBoxSeach">
+                <DrawingImage.Drawing>
+                    <GeometryDrawing Brush="{StaticResource seachTextBoxBrush}">
+                        <GeometryDrawing.Geometry>
+                            <PathGeometry Figures="{StaticResource seachTextBoxSeachPath}" FillRule="EvenOdd" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingImage.Drawing>
+            </DrawingImage>
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--  Styles  -->
+                <ResourceDictionary Source="Themes/TextBoxStyle.xaml" />
+                <ResourceDictionary Source="Themes/RadioButtonStyle.xaml" />
+                <ResourceDictionary Source="Themes/NavTabButtonStyle.xaml" />
+                <ResourceDictionary Source="Themes/ItemsControlStyle.xaml" />
+                <ResourceDictionary Source="Themes/DatePickerStyle.xaml" />
+                <ResourceDictionary Source="Themes/ProjectControlStyle.xaml" />
+                <ResourceDictionary Source="Themes/RadioTemplateStyle.xaml" />
+                <ResourceDictionary Source="Themes/SelectTemplateStyle.xaml" />
+                <ResourceDictionary Source="Themes/DetailsTemplateStyle.xaml" />
+                <ResourceDictionary Source="Themes/SettingItemsStyle.xaml" />
+                <ResourceDictionary Source="Themes/AnimationRadioStyle.xaml" />
+                <ResourceDictionary Source="Themes/SliderStyle.xaml" />
+                <ResourceDictionary Source="Themes/FileItemsStyle.xaml" />
+                <ResourceDictionary Source="Themes/ProgressBarStyle.xaml" />
+                <ResourceDictionary Source="Themes/NavTabManageStyle.xaml" />
+                <ResourceDictionary Source="Themes/ButtonDictionary.xaml" />
+
+                <!--  MaterialDesign 组件  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.indigo.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
